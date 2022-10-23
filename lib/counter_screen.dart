@@ -12,38 +12,45 @@ class CounterScreenState extends State<CounterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-                onPressed: () {
-                  setState(() {
-                    count++;
-                  });
-                  print("INcrement ${count}");
-                },
-                icon: Icon(Icons.add)),
-            IconButton(
-                onPressed: () {
-                  setState(() {
-                    count--;
-                  });
-                  print("Decrement ${count}");
-                },
-                icon: Icon(Icons.remove)),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 40),
-          child: Text(
-            count.toString(),
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 50),
+    return Scaffold(
+      body: ListView(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      count++;
+                    });
+                    print("INcrement ${count}");
+                  },
+                  icon: Icon(Icons.add)),
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      count--;
+                    });
+                    print("Decrement ${count}");
+                  },
+                  icon: Icon(Icons.remove)),
+            ],
           ),
-        )
-      ],
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 40),
+            child: Text(
+              count.toString(),
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 50),
+            ),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Go back"))
+        ],
+      ),
     );
   }
 }
